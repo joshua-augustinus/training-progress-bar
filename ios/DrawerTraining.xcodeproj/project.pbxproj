@@ -12,12 +12,12 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		178B9E83E6FA737BCAC43FB2 /* libPods-DrawerTraining-DrawerTrainingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A22B681904B1372588BF0D /* libPods-DrawerTraining-DrawerTrainingTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* DrawerTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DrawerTrainingTests.m */; };
 		839AF671D16B202AA050CAF4 /* libPods-DrawerTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C69203BEDD4694D2ECE30ACF /* libPods-DrawerTraining.a */; };
-		BD5A44F0E66E18DDCC71D6A3 /* libPods-DrawerTrainingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E56A216C51E971D68A2B0B7A /* libPods-DrawerTrainingTests.a */; };
 		D39B11D59019A3027077CBAB /* libPods-DrawerTraining-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 656A4FE411E9895914DBF37A /* libPods-DrawerTraining-tvOS.a */; };
 		EC388FE595D23AF2C9F55349 /* libPods-DrawerTraining-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6355813F4F0CF60535CFEF0 /* libPods-DrawerTraining-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -163,6 +163,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DrawerTraining/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DrawerTraining/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DrawerTraining/main.m; sourceTree = "<group>"; };
+		20A22B681904B1372588BF0D /* libPods-DrawerTraining-DrawerTrainingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrawerTraining-DrawerTrainingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24467182C89D65C21B9C3EE0 /* Pods-DrawerTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTraining.release.xcconfig"; path = "Target Support Files/Pods-DrawerTraining/Pods-DrawerTraining.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* DrawerTraining-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DrawerTraining-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* DrawerTraining-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DrawerTraining-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,12 +173,13 @@
 		59974EAC04163ABE8BEC6B7F /* Pods-DrawerTraining-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTraining-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-DrawerTraining-tvOSTests/Pods-DrawerTraining-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6164DCD1C5C37BC9E2A9CF0F /* Pods-DrawerTraining-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTraining-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-DrawerTraining-tvOS/Pods-DrawerTraining-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		656A4FE411E9895914DBF37A /* libPods-DrawerTraining-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrawerTraining-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2B6BFC649011DA419A8E79 /* Pods-DrawerTraining-DrawerTrainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTraining-DrawerTrainingTests.debug.xcconfig"; path = "Target Support Files/Pods-DrawerTraining-DrawerTrainingTests/Pods-DrawerTraining-DrawerTrainingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5E382C91F4DA9581BF7CB9F /* Pods-DrawerTraining-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTraining-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-DrawerTraining-tvOSTests/Pods-DrawerTraining-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		BB7766FCBC164398A2A31DCE /* Pods-DrawerTrainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTrainingTests.release.xcconfig"; path = "Target Support Files/Pods-DrawerTrainingTests/Pods-DrawerTrainingTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6355813F4F0CF60535CFEF0 /* libPods-DrawerTraining-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrawerTraining-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C69203BEDD4694D2ECE30ACF /* libPods-DrawerTraining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrawerTraining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D38838EB29435756C671ACA2 /* Pods-DrawerTraining-DrawerTrainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTraining-DrawerTrainingTests.release.xcconfig"; path = "Target Support Files/Pods-DrawerTraining-DrawerTrainingTests/Pods-DrawerTraining-DrawerTrainingTests.release.xcconfig"; sourceTree = "<group>"; };
 		DD64AB9658E6641F60654374 /* Pods-DrawerTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrawerTraining.debug.xcconfig"; path = "Target Support Files/Pods-DrawerTraining/Pods-DrawerTraining.debug.xcconfig"; sourceTree = "<group>"; };
-		E56A216C51E971D68A2B0B7A /* libPods-DrawerTrainingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DrawerTrainingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -187,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD5A44F0E66E18DDCC71D6A3 /* libPods-DrawerTrainingTests.a in Frameworks */,
+				178B9E83E6FA737BCAC43FB2 /* libPods-DrawerTraining-DrawerTrainingTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +248,8 @@
 				B5E382C91F4DA9581BF7CB9F /* Pods-DrawerTraining-tvOSTests.release.xcconfig */,
 				4D42DCE02C6AB0CD9F728C37 /* Pods-DrawerTrainingTests.debug.xcconfig */,
 				BB7766FCBC164398A2A31DCE /* Pods-DrawerTrainingTests.release.xcconfig */,
+				AC2B6BFC649011DA419A8E79 /* Pods-DrawerTraining-DrawerTrainingTests.debug.xcconfig */,
+				D38838EB29435756C671ACA2 /* Pods-DrawerTraining-DrawerTrainingTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -272,7 +276,7 @@
 				C69203BEDD4694D2ECE30ACF /* libPods-DrawerTraining.a */,
 				656A4FE411E9895914DBF37A /* libPods-DrawerTraining-tvOS.a */,
 				C6355813F4F0CF60535CFEF0 /* libPods-DrawerTraining-tvOSTests.a */,
-				E56A216C51E971D68A2B0B7A /* libPods-DrawerTrainingTests.a */,
+				20A22B681904B1372588BF0D /* libPods-DrawerTraining-DrawerTrainingTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -345,6 +349,7 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				A48E29D0643E00FA8A48A435 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -423,7 +428,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = Facebook;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -683,7 +688,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DrawerTrainingTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DrawerTraining-DrawerTrainingTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -735,6 +740,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -754,10 +760,61 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrawerTraining/Pods-DrawerTraining-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A48E29D0643E00FA8A48A435 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DrawerTraining-DrawerTrainingTests/Pods-DrawerTraining-DrawerTrainingTests-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrawerTraining-DrawerTrainingTests/Pods-DrawerTraining-DrawerTrainingTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BB3B066B63E2A4A2BF9FE1A3 /* [CP] Check Pods Manifest.lock */ = {
@@ -887,7 +944,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D42DCE02C6AB0CD9F728C37 /* Pods-DrawerTrainingTests.debug.xcconfig */;
+			baseConfigurationReference = AC2B6BFC649011DA419A8E79 /* Pods-DrawerTraining-DrawerTrainingTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -910,7 +967,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB7766FCBC164398A2A31DCE /* Pods-DrawerTrainingTests.release.xcconfig */;
+			baseConfigurationReference = D38838EB29435756C671ACA2 /* Pods-DrawerTraining-DrawerTrainingTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;

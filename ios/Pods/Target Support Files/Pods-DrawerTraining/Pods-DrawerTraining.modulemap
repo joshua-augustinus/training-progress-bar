@@ -1,0 +1,6 @@
+module Pods_DrawerTraining {
+  umbrella header "Pods-DrawerTraining-umbrella.h"
+
+  export *
+  module * { export * }
+}
