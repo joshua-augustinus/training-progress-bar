@@ -1,18 +1,10 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { ImagePropTypes, StyleSheet, useWindowDimensions, View } from "react-native"
 import Animated, { Easing } from 'react-native-reanimated';
+import { ProgressNumber } from "./ProgressNumber";
 
 const {
-    Clock,
-    Value,
-    set,
-    cond,
-    startClock,
-    clockRunning,
     timing,
-    debug,
-    stopClock,
-    block,
 } = Animated;
 
 
@@ -21,16 +13,20 @@ interface Props {
      * Number from 0 to 100
      */
     percentage: number
+    style: any,
+    animationIndex: number
 }
 
 const ProgressBar = (props: Props) => {
     const windowWidth = useWindowDimensions().width;
     const width = useRef(new Animated.Value(0)).current;
+    const [isNumberVisible, setIsNumberVisible] = useState(false);
     const barWidth = windowWidth * 0.9;
     const foregroundBarWidth = barWidth * props.percentage / 100
 
     useEffect(() => {
-        const duration = 1000;
+        const delay = 500 + props.animationIndex * 100;
+        const duration = 400;
         const animation1 = timing(width, {
             toValue: foregroundBarWidth,
             duration: duration,
@@ -38,19 +34,23 @@ const ProgressBar = (props: Props) => {
         });
 
         setTimeout(() => {
-            animation1.start();
+            animation1.start(() => {
+                setIsNumberVisible(true);
+            });
 
-        }, 500)
+        }, delay)
     }, []);
 
     return (
-        <View>
-            <View style={{ ...styles.backgroundBar, width: barWidth }} ></View>
-            <View style={{ flexDirection: 'row' }}>
-
-                <Animated.View style={{ ...styles.foregroundBar, width: width, }}></Animated.View>
+        <View style={props.style}>
+            <View style={styles.header}>
+                <ProgressNumber isVisible={isNumberVisible} value={props.percentage} />
 
             </View>
+            <View style={{ ...styles.backgroundBar, width: barWidth }} ></View>
+
+            <Animated.View style={{ ...styles.foregroundBar, width: width, }}></Animated.View>
+
 
         </View >
 
@@ -60,12 +60,15 @@ const ProgressBar = (props: Props) => {
 export { ProgressBar }
 
 const styles = StyleSheet.create({
+    header: {
+        alignItems: 'flex-end',
+        marginRight: 10
+    },
     foregroundBar: {
         width: 200,
         backgroundColor: 'orange',
         height: 20,
         borderRadius: 10,
-        position: 'absolute',
         transform: [{ translateY: -20 }]
     },
     backgroundBar: {

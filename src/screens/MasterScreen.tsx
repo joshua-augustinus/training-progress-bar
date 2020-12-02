@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { Button, Text, TextInput, TouchableOpacity, View, BackHandler } from 'react-native';
+import { Button, Text, TextInput, TouchableOpacity, View, BackHandler, StyleSheet } from 'react-native';
 import { SafeAreaView, StackActions } from 'react-navigation';
 import { DrawerActions, NavigationDrawerProp } from 'react-navigation-drawer';
-import Icon from 'react-native-vector-icons/Entypo';
 import { ProgressBar } from '@src/components/ProgressBar';
 
 /**
@@ -11,6 +10,20 @@ import { ProgressBar } from '@src/components/ProgressBar';
 type Props = {
     navigation: NavigationDrawerProp<{ userId: string, routeName: string }>;
 }
+
+const randomPercent = () => {
+    return Math.floor(Math.random() * 100);
+}
+
+let itemArray = [];
+for (let i = 0; i < 6; i++) {
+    itemArray.push({
+        index: i,
+        value: randomPercent()
+    });
+}
+
+
 
 const MasterScreen = (props: Props) => {
 
@@ -24,16 +37,6 @@ const MasterScreen = (props: Props) => {
         props.navigation.dispatch(DrawerActions.toggleDrawer());
     }
 
-    const onButtonPress = () => {
-        const pushAction = StackActions.push({
-            routeName: 'Stack1',
-            params: {
-                myUserId: 9,
-            },
-        });
-
-        props.navigation.dispatch(pushAction);
-    }
 
 
     return (
@@ -46,7 +49,13 @@ const MasterScreen = (props: Props) => {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <ProgressBar percentage={50} />
+                {itemArray.map((item, index) => {
+                    return (
+                        <ProgressBar percentage={item.value} style={styles.bar} animationIndex={index} key={index} />
+
+                    )
+                })}
+
             </View>
         </SafeAreaView>
 
@@ -57,3 +66,9 @@ const MasterScreen = (props: Props) => {
 MasterScreen.navigationOptions = {}
 
 export { MasterScreen }
+
+const styles = StyleSheet.create({
+    bar: {
+
+    }
+})
