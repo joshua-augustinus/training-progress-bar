@@ -3,6 +3,7 @@ import { Button, Text, TextInput, TouchableOpacity, View, BackHandler } from 're
 import { SafeAreaView, StackActions } from 'react-navigation';
 import { DrawerActions, NavigationDrawerProp } from 'react-navigation-drawer';
 import Icon from 'react-native-vector-icons/Entypo';
+import { ProgressBar } from '@src/components/ProgressBar';
 
 /**
  * https://reactnavigation.org/docs/4.x/typescript
@@ -45,10 +46,7 @@ const MasterScreen = (props: Props) => {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="controller-play" size={24} />
-                <Text>{props.navigation.state.routeName}</Text>
-                <TextInput placeholder="Enter text here..."></TextInput>
-                <Button title="Press me" onPress={() => onButtonPress()}></Button>
+                <ProgressBar percentage={50} />
             </View>
         </SafeAreaView>
 
