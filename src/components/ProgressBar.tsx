@@ -65,11 +65,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'orange',
         height: 20,
         borderRadius: 10,
-        position: 'absolute'
+        position: 'absolute',
+        transform: [{ translateY: -20 }]
     },
     backgroundBar: {
         width: 200,
-        backgroundColor: 'grey',
+        backgroundColor: '#D3D3D3',
         height: 20,
         borderRadius: 10
     }
