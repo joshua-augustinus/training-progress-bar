@@ -14,10 +14,11 @@ interface Props {
      */
     percentage: number
     style: any,
-    animationIndex: number
+    animationIndex: number,
+    isAnimated: boolean
 }
 
-const ProgressBar = (props: Props) => {
+const ProgressBar = React.memo((props: Props) => {
     const windowWidth = useWindowDimensions().width;
     const width = useRef(new Animated.Value(0)).current;
     const [isNumberVisible, setIsNumberVisible] = useState(false);
@@ -25,7 +26,9 @@ const ProgressBar = (props: Props) => {
     const foregroundBarWidth = barWidth * props.percentage / 100
 
     useEffect(() => {
-        const delay = 500 + props.animationIndex * 100;
+        if (!props.isAnimated)
+            return;
+        const delay = 100 + props.animationIndex * 100;
         const duration = 400;
         const animation1 = timing(width, {
             toValue: foregroundBarWidth,
@@ -39,7 +42,7 @@ const ProgressBar = (props: Props) => {
             });
 
         }, delay)
-    }, []);
+    }, [props.isAnimated]);
 
     return (
         <View style={props.style}>
@@ -55,7 +58,7 @@ const ProgressBar = (props: Props) => {
         </View >
 
     )
-}
+});
 
 export { ProgressBar }
 

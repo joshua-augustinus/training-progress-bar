@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Button, Text, TextInput, TouchableOpacity, View, BackHandler, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Button, Text, TextInput, TouchableOpacity, View, BackHandler, StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView, StackActions } from 'react-navigation';
 import { DrawerActions, NavigationDrawerProp } from 'react-navigation-drawer';
 import { ProgressBar } from '@src/components/ProgressBar';
@@ -16,16 +16,19 @@ const randomPercent = () => {
 }
 
 let itemArray = [];
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 30; i++) {
     itemArray.push({
         index: i,
-        value: randomPercent()
+        value: randomPercent(),
+        isAnimated: false,
+        animationIndex: 0
     });
 }
 
 
 
 const MasterScreen = (props: Props) => {
+    const [data, setData] = useState(itemArray);
 
     useEffect(() => {
 
@@ -37,7 +40,31 @@ const MasterScreen = (props: Props) => {
         props.navigation.dispatch(DrawerActions.toggleDrawer());
     }
 
+    const renderItem = ({ item, index }) => {
+        return (<ProgressBar percentage={item.value} style={styles.bar} animationIndex={item.animationIndex} key={index} isAnimated={item.isAnimated} />)
 
+    }
+
+    const onViewableItemsChanged = React.useRef((info) => {
+        console.log("On Viewable Items Changed", info);
+        const changedItems = info.changed;
+        let animationIndex = 0;
+        for (let i = 0; i < data.length; i++) {
+            const item = data[i];
+            if (!item.isAnimated) {
+                if (changedItems.some(x => x.index === item.index)) {
+                    item.isAnimated = true;
+                    item.animationIndex = animationIndex;
+                    animationIndex++;
+                    console.log("Animating", item);
+                }
+            }
+
+        }
+
+        setData([...data]);
+
+    });
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -49,12 +76,8 @@ const MasterScreen = (props: Props) => {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                {itemArray.map((item, index) => {
-                    return (
-                        <ProgressBar percentage={item.value} style={styles.bar} animationIndex={index} key={index} />
+                <FlatList onViewableItemsChanged={onViewableItemsChanged.current} data={data} keyExtractor={item => item.index.toString()} renderItem={renderItem} />
 
-                    )
-                })}
 
             </View>
         </SafeAreaView>
@@ -69,6 +92,6 @@ export { MasterScreen }
 
 const styles = StyleSheet.create({
     bar: {
-
+        marginVertical: 10
     }
 })
