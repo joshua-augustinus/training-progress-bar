@@ -8,6 +8,7 @@ const {
     timing,
 } = Animated;
 
+const BAR_HEIGHT = 16;
 
 interface Props {
     /**
@@ -78,14 +79,14 @@ const styles = StyleSheet.create({
     foregroundBar: {
         width: 200,
         backgroundColor: 'orange',
-        height: 20,
+        height: BAR_HEIGHT,
         borderRadius: 10,
-        transform: [{ translateY: -20 }]
+        transform: [{ translateY: -BAR_HEIGHT }]
     },
     backgroundBar: {
         width: 200,
         backgroundColor: '#D3D3D3',
-        height: 20,
+        height: BAR_HEIGHT,
         borderRadius: 10
     }
 })

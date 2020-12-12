@@ -44,10 +44,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#29b2cf',
         borderRadius: 5,
         alignItems: 'center',
-        marginLeft: 6
+        marginLeft: 6,
+        height: 24,
+        justifyContent: 'flex-end'
     },
     exploreText: {
         color: 'white',
-        marginLeft: 6
+        marginRight: 4,
+        fontSize: 10
     }
 })

@@ -29,7 +29,7 @@ for (let i = 0; i < 30; i++) {
 
 const MasterScreen = (props: Props) => {
     const [data, setData] = useState(itemArray);
-
+    const [extraData, setExtraData] = useState(null);
     useEffect(() => {
 
     }, []);
@@ -55,14 +55,14 @@ const MasterScreen = (props: Props) => {
                     item.isAnimated = true;
                     item.animationIndex = animationIndex;
                     animationIndex++;
-                    console.log("Animating", item);
                 }
             }
 
         }
 
-        setData([...data]);
-
+        if (animationIndex > 0) {
+            setExtraData(new Date());
+        }
     });
 
     return (
@@ -75,7 +75,7 @@ const MasterScreen = (props: Props) => {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <FlatList showsVerticalScrollIndicator={false} onViewableItemsChanged={onViewableItemsChanged.current} data={data} keyExtractor={item => item.index.toString()} renderItem={renderItem} />
+                <FlatList extraData={extraData} showsVerticalScrollIndicator={false} onViewableItemsChanged={onViewableItemsChanged.current} data={data} keyExtractor={item => item.index.toString()} renderItem={renderItem} />
 
 
             </View>
