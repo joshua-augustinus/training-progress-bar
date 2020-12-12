@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { ImagePropTypes, Pressable, StyleSheet, Text, useWindowDimensions, View } from "react-native"
+import { TouchableOpacity } from "react-native-gesture-handler";
 import Animated, { Easing } from 'react-native-reanimated';
 import { ProgressNumber } from "./ProgressNumber";
 
@@ -28,7 +29,7 @@ const ProgressBar = React.memo((props: Props) => {
     useEffect(() => {
         if (!props.isAnimated)
             return;
-        const delay = 100 + props.animationIndex * 100;
+        const delay = 500 + props.animationIndex * 100;
         const duration = 400;
         const animation1 = timing(width, {
             toValue: foregroundBarWidth,
@@ -45,7 +46,7 @@ const ProgressBar = React.memo((props: Props) => {
     }, [props.isAnimated]);
 
     return (
-        <Pressable onPress={() => { }}>
+        <TouchableOpacity onPress={() => { }}>
             <View style={props.style}>
                 <View style={styles.header}>
                     <Text>Left Text</Text>
@@ -58,7 +59,7 @@ const ProgressBar = React.memo((props: Props) => {
 
 
             </View >
-        </Pressable>
+        </TouchableOpacity>
 
 
     )

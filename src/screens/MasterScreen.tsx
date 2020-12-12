@@ -46,7 +46,6 @@ const MasterScreen = (props: Props) => {
     }
 
     const onViewableItemsChanged = React.useRef((info) => {
-        console.log("On Viewable Items Changed", info);
         const changedItems = info.changed;
         let animationIndex = 0;
         for (let i = 0; i < data.length; i++) {
