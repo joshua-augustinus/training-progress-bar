@@ -76,7 +76,7 @@ const MasterScreen = (props: Props) => {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <FlatList onViewableItemsChanged={onViewableItemsChanged.current} data={data} keyExtractor={item => item.index.toString()} renderItem={renderItem} />
+                <FlatList showsVerticalScrollIndicator={false} onViewableItemsChanged={onViewableItemsChanged.current} data={data} keyExtractor={item => item.index.toString()} renderItem={renderItem} />
 
 
             </View>
@@ -92,6 +92,6 @@ export { MasterScreen }
 
 const styles = StyleSheet.create({
     bar: {
-        marginVertical: 10
+        marginVertical: 0
     }
 })

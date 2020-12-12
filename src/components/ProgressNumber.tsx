@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react"
-import { Animated, Text } from "react-native"
+import React, { useEffect, useRef, useState } from "react"
+import { Animated, StyleSheet, Text, View } from "react-native"
+import { ExploreButton } from "./ExploreButton";
 
 
 interface Props {
@@ -7,10 +8,14 @@ interface Props {
     value: number
 }
 
+const EXPLORE_WIDTH = 100;
+
 const ProgressNumber = (props: Props) => {
     const scale = useRef(new Animated.Value(0)).current;
+    const translateX = useRef(new Animated.Value(EXPLORE_WIDTH)).current;
+    const [exploreIsVisible, setExploreIsVisible] = useState(false);
 
-    const transformArray = [{ scale: scale }];
+    const transformArray = [{ scaleY: scale }, { translateX: translateX }];
     const text = props.value + ' %'
 
     useEffect(() => {
@@ -21,15 +26,37 @@ const ProgressNumber = (props: Props) => {
                 bounciness: 16
             })
 
-            animation1.start();
+            const animation2 = Animated.spring(translateX, {
+                useNativeDriver: true,
+                toValue: 0,
+                bounciness: 0
+            })
+
+            animation1.start(() => {
+                animation2.start();
+                setExploreIsVisible(true);
+            });
         }
     }, [props.isVisible]);
 
 
     return (
-        <Animated.Text style={{ transform: transformArray }}>{text}</Animated.Text>
+        <View style={styles.container}>
+            <Animated.View style={{ justifyContent: 'center', transform: transformArray }}>
+                <Text >{text}</Text>
 
+            </Animated.View>
+            <ExploreButton width={EXPLORE_WIDTH} isVisible={exploreIsVisible} />
+        </View>
     )
 }
 
 export { ProgressNumber }
+
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        alignContent: 'center'
+    }
+})

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import { ImagePropTypes, StyleSheet, useWindowDimensions, View } from "react-native"
+import { ImagePropTypes, Pressable, StyleSheet, Text, useWindowDimensions, View } from "react-native"
 import Animated, { Easing } from 'react-native-reanimated';
 import { ProgressNumber } from "./ProgressNumber";
 
@@ -45,17 +45,21 @@ const ProgressBar = React.memo((props: Props) => {
     }, [props.isAnimated]);
 
     return (
-        <View style={props.style}>
-            <View style={styles.header}>
-                <ProgressNumber isVisible={isNumberVisible} value={props.percentage} />
+        <Pressable onPress={() => { }}>
+            <View style={props.style}>
+                <View style={styles.header}>
+                    <Text>Left Text</Text>
+                    <ProgressNumber isVisible={isNumberVisible} value={props.percentage} />
 
-            </View>
-            <View style={{ ...styles.backgroundBar, width: barWidth }} ></View>
+                </View>
+                <View style={{ ...styles.backgroundBar, width: barWidth }} ></View>
 
-            <Animated.View style={{ ...styles.foregroundBar, width: width, }}></Animated.View>
+                <Animated.View style={{ ...styles.foregroundBar, width: width, }}></Animated.View>
 
 
-        </View >
+            </View >
+        </Pressable>
+
 
     )
 });
@@ -64,8 +68,11 @@ export { ProgressBar }
 
 const styles = StyleSheet.create({
     header: {
-        alignItems: 'flex-end',
-        marginRight: 10
+        alignItems: 'center',
+        marginRight: 0,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 2
     },
     foregroundBar: {
         width: 200,
