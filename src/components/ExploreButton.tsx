@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ExploreButton = (props: Props) => {
-    const translateX = useRef(new Animated.Value(props.width * 2)).current;
+    const translateX = useRef(new Animated.Value(500)).current;
 
     const transformArray = [{ translateX: translateX }];
 
@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
     },
     exploreText: {
         color: 'white',
-        marginLeft: 8
+        marginLeft: 6
     }
 })

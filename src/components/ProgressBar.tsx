@@ -14,6 +14,7 @@ interface Props {
      */
     percentage: number
     style: any,
+    animationIndex: number,
     isAnimated: boolean
 }
 
@@ -27,7 +28,7 @@ const ProgressBar = React.memo((props: Props) => {
     useEffect(() => {
         if (!props.isAnimated)
             return;
-        const delay = 100;
+        const delay = 100 + props.animationIndex * 100;
         const duration = 400;
         const animation1 = timing(width, {
             toValue: foregroundBarWidth,
