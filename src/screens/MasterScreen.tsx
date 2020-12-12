@@ -41,21 +41,17 @@ const MasterScreen = (props: Props) => {
     }
 
     const renderItem = ({ item, index }) => {
-        return (<ProgressBar percentage={item.value} style={styles.bar} animationIndex={item.animationIndex} key={index} isAnimated={item.isAnimated} />)
+        return (<ProgressBar percentage={item.value} style={styles.bar} key={index} isAnimated={item.isAnimated} />)
 
     }
 
     const onViewableItemsChanged = React.useRef((info) => {
-        console.log("On Viewable Items Changed", info);
         const changedItems = info.changed;
-        let animationIndex = 0;
         for (let i = 0; i < data.length; i++) {
             const item = data[i];
             if (!item.isAnimated) {
                 if (changedItems.some(x => x.index === item.index)) {
                     item.isAnimated = true;
-                    item.animationIndex = animationIndex;
-                    animationIndex++;
                     console.log("Animating", item);
                 }
             }
