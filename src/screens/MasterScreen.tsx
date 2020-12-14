@@ -15,6 +15,11 @@ const randomPercent = () => {
     return Math.floor(Math.random() * 100);
 }
 
+const viewabilityConfig = {
+    minimumViewTime: 500,
+    itemVisiblePercentThreshold: 90
+}
+
 let itemArray = [];
 for (let i = 0; i < 30; i++) {
     itemArray.push({
@@ -41,21 +46,22 @@ const MasterScreen = (props: Props) => {
     }
 
     const renderItem = ({ item, index }) => {
+        item.index = index;
         return (<ProgressBar percentage={item.value} style={styles.bar} animationIndex={item.animationIndex} key={index} isAnimated={item.isAnimated} />)
 
     }
 
     const onViewableItemsChanged = React.useRef((info) => {
-        const changedItems = info.changed;
+        const changedItems = info.viewableItems;
         let animationIndex = 0;
-        for (let i = 0; i < data.length; i++) {
-            const item = data[i];
+        for (let i = 0; i < changedItems.length; i++) {
+            const item = changedItems[i];
             if (!item.isAnimated) {
-                if (changedItems.some(x => x.index === item.index)) {
-                    item.isAnimated = true;
-                    item.animationIndex = animationIndex;
-                    animationIndex++;
-                }
+                const dataItem = data[item.index];
+                dataItem.isAnimated = true;
+                dataItem.animationIndex = animationIndex;
+                animationIndex++;
+
             }
 
         }
@@ -75,7 +81,11 @@ const MasterScreen = (props: Props) => {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <FlatList extraData={extraData} showsVerticalScrollIndicator={false} onViewableItemsChanged={onViewableItemsChanged.current} data={data} keyExtractor={item => item.index.toString()} renderItem={renderItem} />
+                <FlatList viewabilityConfig={viewabilityConfig}
+                    extraData={extraData}
+                    showsVerticalScrollIndicator={false}
+                    onViewableItemsChanged={onViewableItemsChanged.current} data={data}
+                    keyExtractor={item => item.index.toString()} renderItem={renderItem} />
 
 
             </View>

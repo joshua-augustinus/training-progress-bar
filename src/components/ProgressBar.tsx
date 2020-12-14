@@ -30,7 +30,7 @@ const ProgressBar = React.memo((props: Props) => {
     useEffect(() => {
         if (!props.isAnimated)
             return;
-        const delay = 500 + props.animationIndex * 100;
+        const delay = props.animationIndex * 100;
         const duration = 400;
         const animation1 = timing(width, {
             toValue: foregroundBarWidth,
