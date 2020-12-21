@@ -30,7 +30,7 @@ const ExploreButton = (props: Props) => {
         <Animated.View style={[styles.container, { width: props.width, transform: transformArray }]}>
 
             <Text style={styles.exploreText}>EXPLORE</Text>
-            <Icon name="arrow-right" size={30} color="white" />
+            <Icon name="arrow-right" size={20} color="white" />
         </Animated.View>
     )
 }
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     exploreText: {
         color: 'white',
-        marginRight: 4,
+        marginRight: 10,
         fontSize: 10
     }
 })
