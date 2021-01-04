@@ -16,8 +16,8 @@ const randomPercent = () => {
 }
 
 const viewabilityConfig = {
-    minimumViewTime: 0,
-    itemVisiblePercentThreshold: 80
+    minimumViewTime: 500,
+    itemVisiblePercentThreshold: 90
 }
 
 let itemArray = [];
@@ -25,7 +25,8 @@ for (let i = 0; i < 30; i++) {
     itemArray.push({
         index: i,
         value: randomPercent(),
-        isAnimated: false
+        isAnimated: false,
+        animationIndex: 0
     });
 }
 
@@ -46,25 +47,26 @@ const MasterScreen = (props: Props) => {
 
     const renderItem = ({ item, index }) => {
         item.index = index;
-        return (<ProgressBar percentage={item.value} style={styles.bar} key={index} isAnimated={item.isAnimated} />)
+        return (<ProgressBar percentage={item.value} style={styles.bar} animationIndex={item.animationIndex} key={index} isAnimated={item.isAnimated} />)
 
     }
 
     const onViewableItemsChanged = React.useRef((info) => {
         const changedItems = info.viewableItems;
-        let requiresRedraw = false;
+        let animationIndex = 0;
         for (let i = 0; i < changedItems.length; i++) {
             const item = changedItems[i];
             if (!item.isAnimated) {
                 const dataItem = data[item.index];
                 dataItem.isAnimated = true;
-                requiresRedraw = true;
+                dataItem.animationIndex = animationIndex;
+                animationIndex++;
 
             }
 
         }
 
-        if (requiresRedraw) {
+        if (animationIndex > 0) {
             setExtraData(new Date());
         }
     });
