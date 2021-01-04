@@ -5,7 +5,8 @@ import { ExploreButton } from "./ExploreButton";
 
 interface Props {
     isVisible: boolean,
-    value: number
+    value: number,
+    delay: number
 }
 
 const EXPLORE_WIDTH = 100;
@@ -15,7 +16,7 @@ const ProgressNumber = (props: Props) => {
     const translateX = useRef(new Animated.Value(EXPLORE_WIDTH)).current;
     const [exploreIsVisible, setExploreIsVisible] = useState(false);
 
-    const transformArray = [{ scaleY: scale }, { translateX: translateX }];
+    const transformArray = [{ scaleY: scale }];
     const text = props.value + ' %'
 
     useEffect(() => {
@@ -23,18 +24,12 @@ const ProgressNumber = (props: Props) => {
             const animation1 = Animated.spring(scale, {
                 useNativeDriver: true,
                 toValue: 1,
-                bounciness: 16
+                bounciness: 16,
+                delay: props.delay
             })
 
-            const animation2 = Animated.spring(translateX, {
-                useNativeDriver: true,
-                toValue: 0,
-                bounciness: 0
-            })
 
             animation1.start(() => {
-                animation2.start();
-                setExploreIsVisible(true);
             });
         }
     }, [props.isVisible]);
@@ -42,11 +37,11 @@ const ProgressNumber = (props: Props) => {
 
     return (
         <View style={styles.container}>
-            <Animated.View style={{ justifyContent: 'center', transform: transformArray }}>
+            <Animated.View style={{ justifyContent: 'center', transform: transformArray, flexDirection: 'row' }}>
                 <Text >{text}</Text>
+                <ExploreButton width={EXPLORE_WIDTH} isVisible={true} />
 
             </Animated.View>
-            <ExploreButton width={EXPLORE_WIDTH} isVisible={exploreIsVisible} />
         </View>
     )
 }

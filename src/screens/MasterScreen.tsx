@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Text, TextInput, TouchableOpacity, View, BackHandler, StyleSheet, FlatList } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Button, Text, TextInput, TouchableOpacity, View, BackHandler, StyleSheet, FlatList, Animated } from 'react-native';
 import { SafeAreaView, StackActions } from 'react-navigation';
 import { DrawerActions, NavigationDrawerProp } from 'react-navigation-drawer';
 import { ProgressBar } from '@src/components/ProgressBar';
@@ -21,12 +21,12 @@ const viewabilityConfig = {
 }
 
 let itemArray = [];
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 10; i++) {
     itemArray.push({
         index: i,
         value: randomPercent(),
-        isAnimated: false,
-        animationIndex: 0
+        isAnimated: true,
+        animationIndex: i
     });
 }
 
@@ -35,6 +35,8 @@ for (let i = 0; i < 30; i++) {
 const MasterScreen = (props: Props) => {
     const [data, setData] = useState(itemArray);
     const [extraData, setExtraData] = useState(null);
+    const scrollY = useRef(new Animated.Value(0)).current;
+
     useEffect(() => {
 
     }, []);
@@ -52,23 +54,8 @@ const MasterScreen = (props: Props) => {
     }
 
     const onViewableItemsChanged = React.useRef((info) => {
-        const changedItems = info.viewableItems;
-        let animationIndex = 0;
-        for (let i = 0; i < changedItems.length; i++) {
-            const item = changedItems[i];
-            if (!item.isAnimated) {
-                const dataItem = data[item.index];
-                dataItem.isAnimated = true;
-                dataItem.animationIndex = animationIndex;
-                animationIndex++;
+        console.log(info);
 
-            }
-
-        }
-
-        if (animationIndex > 0) {
-            setExtraData(new Date());
-        }
     });
 
     return (
@@ -81,10 +68,13 @@ const MasterScreen = (props: Props) => {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <FlatList viewabilityConfig={viewabilityConfig}
+                <Animated.FlatList viewabilityConfig={viewabilityConfig}
+                    onScrollEndDrag={() => console.log("end")}
+
                     extraData={extraData}
                     showsVerticalScrollIndicator={false}
-                    onViewableItemsChanged={onViewableItemsChanged.current} data={data}
+                    data={data}
+                    onViewableItemsChanged={onViewableItemsChanged.current}
                     keyExtractor={item => item.index.toString()} renderItem={renderItem} />
 
 

@@ -13,21 +13,10 @@ const ExploreButton = (props: Props) => {
 
     const transformArray = [{ translateX: translateX }];
 
-    useEffect(() => {
-        if (props.isVisible) {
-            const animation1 = Animated.spring(translateX, {
-                useNativeDriver: true,
-                toValue: 0,
-                bounciness: 0
-            });
-            animation1.start();
 
-        }
-
-    }, [props.isVisible]);
 
     return (
-        <Animated.View style={[styles.container, { width: props.width, transform: transformArray }]}>
+        <Animated.View style={[styles.container, { width: props.width }]}>
 
             <Text style={styles.exploreText}>EXPLORE</Text>
             <Icon name="arrow-right" size={30} color="white" />

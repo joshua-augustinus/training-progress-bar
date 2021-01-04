@@ -26,11 +26,11 @@ const ProgressBar = React.memo((props: Props) => {
     const [isNumberVisible, setIsNumberVisible] = useState(false);
     const barWidth = windowWidth * 0.9;
     const foregroundBarWidth = barWidth * props.percentage / 100
+    const delay = props.animationIndex * 100;
 
     useEffect(() => {
         if (!props.isAnimated)
             return;
-        const delay = props.animationIndex * 100;
         const duration = 400;
         const animation1 = timing(width, {
             toValue: foregroundBarWidth,
@@ -40,18 +40,21 @@ const ProgressBar = React.memo((props: Props) => {
 
         setTimeout(() => {
             animation1.start(() => {
-                setIsNumberVisible(true);
             });
 
         }, delay)
+
+
+
+
     }, [props.isAnimated]);
 
     return (
         <TouchableOpacity onPress={() => { }}>
             <View style={props.style}>
                 <View style={styles.header}>
-                    <Text>Left Text</Text>
-                    <ProgressNumber isVisible={isNumberVisible} value={props.percentage} />
+                    <Text>{delay.toString()}</Text>
+                    <ProgressNumber isVisible={props.isAnimated} delay={delay + 400} value={props.percentage} />
 
                 </View>
                 <View style={{ ...styles.backgroundBar, width: barWidth }} ></View>
